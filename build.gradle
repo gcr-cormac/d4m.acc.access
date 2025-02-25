@@ -5,7 +5,7 @@ plugins {
 	id 'maven-publish'
 }
 
-group = 'com.cormac.fhir'
+group = 'com.cormacjar'
 version = '0.0.1'
 
 java {
@@ -23,13 +23,15 @@ repositories {
 
 dependencies {
 
-	api project(':FHIRSDS')
+	implementation project(':FHIRSDS')
+	implementation 'org.cormac:fhir.emf:4.3.0'
 	implementation 'org.apache.accumulo:accumulo-core:2.1.3'
 	implementation 'org.springframework:spring-context:6.0.12'
 	// EMF
 	implementation 'org.eclipse.emf:org.eclipse.emf.common:2.40.0'
 	implementation 'org.eclipse.emf:org.eclipse.emf.ecore:2.38.0'
 	implementation 'org.eclipse.emf:org.eclipse.emf.ecore.xmi:2.38.0'
+	implementation 'com.google.guava:guava:33.4.0-jre'
 }
 
 tasks.named('test') {

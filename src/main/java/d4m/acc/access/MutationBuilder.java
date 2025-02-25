@@ -1,8 +1,8 @@
 package d4m.acc.access;
 
 import org.apache.accumulo.core.client.BatchWriter;
-import org.apache.accumulo.core.client.MutationsRejectedException;
 import org.apache.accumulo.core.data.Mutation;
+import org.apache.accumulo.core.client.MutationsRejectedException;
 import org.apache.accumulo.core.data.Value;
 import org.apache.hadoop.io.Text;
 import org.eclipse.emf.ecore.EAttribute;

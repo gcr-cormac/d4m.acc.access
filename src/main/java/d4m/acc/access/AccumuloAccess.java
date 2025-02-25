@@ -22,6 +22,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
+import com.google.common.collect.Table;
+
 @Component
 public class AccumuloAccess {
 
@@ -92,40 +94,16 @@ public class AccumuloAccess {
 		byte[] bytes = resource.getBytes(StandardCharsets.UTF_8);
 		InputStream reader = new ByteArrayInputStream(bytes);
 		EObject eObject = FHIRSDS.load(reader, format);
+		FHIRD4M app = new FHIRD4M();
+		app.serialize(eObject);
 
 		try {
 			final BatchWriter bw = client.createBatchWriter(tableName);
 			final BatchWriter bwT = client.createBatchWriter(tableName + pairDecor);
-			final BatchWriter bwDeg = client.createBatchWriter(tableName + degreeDecor);
-			
+			final BatchWriter bwDeg = client.createBatchWriter(tableName + degreeDecor);	
 			
 		} catch (TableNotFoundException e) {
 			e.printStackTrace();
 		}
 	}
-
-//	public void insert(String resource, SDS_FORMAT format, String tableName) {
-//
-//		if (client.tableOperations().exists(tableName)) {
-//			try {
-//				
-//				final BatchWriter bw = client.createBatchWriter(tableName);
-//
-//				String[] rows = rcvs.getRr();
-//				for (int i = 0; i < rows.length; i++) {
-//					Mutation m = new Mutation(rows[i]);
-//					String[] cols = rcvs.getCc();
-//					String[] vals = rcvs.getVv();
-//					for (int j = 0; j < cols.length; j++) {
-//						m.put(new Text(rcvs.getF()), new Text(cols[j]), new Value(vals[j]));
-//					}
-//					bw.addMutation(m);
-//				}
-//				bw.close();
-//			} catch (TableNotFoundException | MutationsRejectedException e) {
-//				e.printStackTrace();
-//			}
-//		}
-//	}
-
 }

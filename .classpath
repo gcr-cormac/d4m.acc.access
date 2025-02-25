@@ -1,23 +1,373 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" output="bin/main" path="src/main/resources">
+	<classpathentry kind="con" path="org.eclipse.buildship.core.gradleclasspathcontainer"/>
+	<classpathentry kind="output" path="bin/default"/>
+	<classpathentry output="bin/main" kind="src" path="src/main/java">
 		<attributes>
 			<attribute name="gradle_scope" value="main"/>
 			<attribute name="gradle_used_by_scope" value="main,test"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="src" output="bin/main" path="src/main/java">
+	<classpathentry output="bin/main" kind="src" path="src/main/resources">
 		<attributes>
 			<attribute name="gradle_scope" value="main"/>
 			<attribute name="gradle_used_by_scope" value="main,test"/>
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-17/"/>
-	<classpathentry kind="con" path="org.eclipse.buildship.core.gradleclasspathcontainer"/>
 	<classpathentry kind="src" path="/FHIRSDS">
 		<attributes>
-			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="without_test_code" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="output" path="bin/default"/>
+	<classpathentry sourcepath="C:/Users/Geoffry/.m2/repository/org/cormac/fhir.emf/4.3.0/fhir.emf-4.3.0-sources.jar" kind="lib" path="C:/Users/Geoffry/.m2/repository/org/cormac/fhir.emf/4.3.0/fhir.emf-4.3.0.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.apache.accumulo/accumulo-core/2.1.3/e8f3fc5b8880b46109c94950d02e59fb6ff0b38/accumulo-core-2.1.3-sources.jar" kind="lib" path="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.apache.accumulo/accumulo-core/2.1.3/16ce47b778c418e5628bb66d5a64e6fe442a3599/accumulo-core-2.1.3.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context/6.0.12/e3d2dff47f8b818e41513528ddbfa2fe702c24f6/spring-context-6.0.12-sources.jar" kind="lib" path="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context/6.0.12/f1964518e07796b2fdc1b9be2108485ffe1b4566/spring-context-6.0.12.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/Geoffry/.m2/repository/org/eclipse/emf/org.eclipse.emf.ecore.xmi/2.38.0/org.eclipse.emf.ecore.xmi-2.38.0-sources.jar" kind="lib" path="C:/Users/Geoffry/.m2/repository/org/eclipse/emf/org.eclipse.emf.ecore.xmi/2.38.0/org.eclipse.emf.ecore.xmi-2.38.0.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/Geoffry/.m2/repository/org/eclipse/emf/org.eclipse.emf.ecore/2.38.0/org.eclipse.emf.ecore-2.38.0-sources.jar" kind="lib" path="C:/Users/Geoffry/.m2/repository/org/eclipse/emf/org.eclipse.emf.ecore/2.38.0/org.eclipse.emf.ecore-2.38.0.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/Geoffry/.m2/repository/org/eclipse/emf/org.eclipse.emf.common/2.40.0/org.eclipse.emf.common-2.40.0-sources.jar" kind="lib" path="C:/Users/Geoffry/.m2/repository/org/eclipse/emf/org.eclipse.emf.common/2.40.0/org.eclipse.emf.common-2.40.0.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value=""/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/Geoffry/.m2/repository/com/google/guava/guava/33.4.0-jre/guava-33.4.0-jre-sources.jar" kind="lib" path="C:/Users/Geoffry/.m2/repository/com/google/guava/guava/33.4.0-jre/guava-33.4.0-jre.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/com.beust/jcommander/1.82/5cf95a2e18d79d404fd81263db36862287e736cc/jcommander-1.82-sources.jar" kind="lib" path="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/com.beust/jcommander/1.82/a7c5fef184d238065de38f81bbc6ee50cca2e21/jcommander-1.82.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.16.1/980f63c6ea050aca8c9a47f7643fb183b5d7143c/jackson-annotations-2.16.1-sources.jar" kind="lib" path="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.16.1/fd441d574a71e7d10a4f73de6609f881d8cdfeec/jackson-annotations-2.16.1.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.16.1/13883e6b942fe5991477befedf3af8a7a82b3e32/jackson-core-2.16.1-sources.jar" kind="lib" path="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.16.1/9456bb3cdd0f79f91a5f730a1b1bb041a380c91f/jackson-core-2.16.1.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.16.1/49d81b4832bc388e38901b9d6cf0f8a170820849/jackson-databind-2.16.1-sources.jar" kind="lib" path="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.16.1/2a16efeb840c45af1e2f31753dfe76795278b73/jackson-databind-2.16.1.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/com.github.ben-manes.caffeine/caffeine/3.1.8/352209f02df83046de6ebfd647b22d726ca3a954/caffeine-3.1.8-sources.jar" kind="lib" path="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/com.github.ben-manes.caffeine/caffeine/3.1.8/24795585df8afaf70a2cd534786904ea5889c047/caffeine-3.1.8.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/Geoffry/.m2/repository/com/google/code/gson/gson/2.10.1/gson-2.10.1-sources.jar" kind="lib" path="C:/Users/Geoffry/.m2/repository/com/google/code/gson/gson/2.10.1/gson-2.10.1.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/com.google.protobuf/protobuf-java/3.22.0/388005f4cbfdc2f018f666547d2ec45a8a04e28d/protobuf-java-3.22.0-sources.jar" kind="lib" path="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/com.google.protobuf/protobuf-java/3.22.0/aa58e31e88e9974452f0498e237532df5732257a/protobuf-java-3.22.0.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.apache.accumulo/accumulo-start/2.1.3/250f390c95898c47c45bd6fa6ad055916b007168/accumulo-start-2.1.3-sources.jar" kind="lib" path="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.apache.accumulo/accumulo-start/2.1.3/c749c67fc0f8288826fba371f75a3bd8ca43c265/accumulo-start-2.1.3.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.apache.zookeeper/zookeeper/3.9.2/8c0a3e2b6f2baea968ed9ae2d65dc5474be3452c/zookeeper-3.9.2-sources.jar" kind="lib" path="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.apache.zookeeper/zookeeper/3.9.2/b6a8d8e3a4cf932cad92e5894c93724c73076333/zookeeper-3.9.2.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/Geoffry/.m2/repository/commons-io/commons-io/2.15.1/commons-io-2.15.1-sources.jar" kind="lib" path="C:/Users/Geoffry/.m2/repository/commons-io/commons-io/2.15.1/commons-io-2.15.1.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-configuration2/2.10.1/9857337eb462073b07af85ad13a97f7f982e9889/commons-configuration2-2.10.1-sources.jar" kind="lib" path="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-configuration2/2.10.1/2b681b3bcddeaa5bf5c2a2939cd77e2f9ad6efda/commons-configuration2-2.10.1.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-vfs2/2.9.0/7d015ebfc651b4b641789b1adc43c6a4fd7e4aaf/commons-vfs2-2.9.0-sources.jar" kind="lib" path="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-vfs2/2.9.0/48115c2fb1c5f0a2498a4365162d6b69adec73f3/commons-vfs2-2.9.0.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/commons-logging/commons-logging/1.3.3/c5b9980056fe50e75c73f1ceeb1042646d494ed8/commons-logging-1.3.3-sources.jar" kind="lib" path="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/commons-logging/commons-logging/1.3.3/580ad1a4f34876c4f964c083361de31b3d60be68/commons-logging-1.3.3.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/io.micrometer/micrometer-core/1.12.2/d530c9ac6368b535adf91050e1c1a873016778c3/micrometer-core-1.12.2-sources.jar" kind="lib" path="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/io.micrometer/micrometer-core/1.12.2/ad701a658e92a3122ee4b2418261daa6821e5b9d/micrometer-core-1.12.2.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/io.opentelemetry/opentelemetry-api/1.34.1/bead663dbbcb57efc04355425b24a04b7e469718/opentelemetry-api-1.34.1-sources.jar" kind="lib" path="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/io.opentelemetry/opentelemetry-api/1.34.1/b4aea155f6d6b1032eba85378564431cfd86f562/opentelemetry-api-1.34.1.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/io.opentelemetry/opentelemetry-context/1.34.1/2a5870c26f7aa988f93e3c91c1715cee356c421/opentelemetry-context-1.34.1-sources.jar" kind="lib" path="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/io.opentelemetry/opentelemetry-context/1.34.1/3fcc87f3d810ce49d865ee54b40831559c5e129b/opentelemetry-context-1.34.1.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/Geoffry/.m2/repository/org/apache/commons/commons-collections4/4.4/commons-collections4-4.4-sources.jar" kind="lib" path="C:/Users/Geoffry/.m2/repository/org/apache/commons/commons-collections4/4.4/commons-collections4-4.4.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-text/1.11.0/495883e4f3d80c80f15f6a5ae0e2b4a81184a9b5/commons-text-1.11.0-sources.jar" kind="lib" path="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-text/1.11.0/2bb044b7717ec2eccaf9ea7769c1509054b50e9a/commons-text-1.11.0.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/Geoffry/.m2/repository/org/apache/commons/commons-lang3/3.14.0/commons-lang3-3.14.0.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/Geoffry/.m2/repository/org/apache/commons/commons-math3/3.6.1/commons-math3-3.6.1-sources.jar" kind="lib" path="C:/Users/Geoffry/.m2/repository/org/apache/commons/commons-math3/3.6.1/commons-math3-3.6.1.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.apache.datasketches/datasketches-java/4.1.0/8b1b9f5fbc3027de45483b05a34bce10c0f08ca9/datasketches-java-4.1.0-sources.jar" kind="lib" path="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.apache.datasketches/datasketches-java/4.1.0/6a202e869fff980a2917c89b55ab230a996954a8/datasketches-java-4.1.0.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.apache.hadoop/hadoop-client-api/3.3.6/b2fc0dcd9af7651b0b995e7b809db09ca162322e/hadoop-client-api-3.3.6-sources.jar" kind="lib" path="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.apache.hadoop/hadoop-client-api/3.3.6/12ac6f103a0ff29fce17a078c7c64d25320b6165/hadoop-client-api-3.3.6.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-1.2-api/2.23.1/45089ee126704ea998c7a065d975d2ebadbfd21b/log4j-1.2-api-2.23.1-sources.jar" kind="lib" path="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-1.2-api/2.23.1/f733b3c818352b0735cb59ca7987e2ce7848ee15/log4j-1.2-api-2.23.1.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.apache.thrift/libthrift/0.17.0/35416757d7809c61ab36f7e3b4583d7740f857cf/libthrift-0.17.0-sources.jar" kind="lib" path="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.apache.thrift/libthrift/0.17.0/36aec83a463d233ab537407df7612c383727b03f/libthrift-0.17.0.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.apache.zookeeper/zookeeper-jute/3.9.2/5eb667bb5366546004efea5a41bf63c5bf36ae51/zookeeper-jute-3.9.2-sources.jar" kind="lib" path="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.apache.zookeeper/zookeeper-jute/3.9.2/d1a2a1a2457edb8a8fc309b86653e38bf45ae5ea/zookeeper-jute-3.9.2.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/Geoffry/.m2/repository/org/checkerframework/checker-qual/3.43.0/checker-qual-3.43.0-sources.jar" kind="lib" path="C:/Users/Geoffry/.m2/repository/org/checkerframework/checker-qual/3.43.0/checker-qual-3.43.0.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/Geoffry/.m2/repository/org/slf4j/slf4j-api/2.0.12/slf4j-api-2.0.12-sources.jar" kind="lib" path="C:/Users/Geoffry/.m2/repository/org/slf4j/slf4j-api/2.0.12/slf4j-api-2.0.12.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/Geoffry/.m2/repository/org/yaml/snakeyaml/2.2/snakeyaml-2.2-sources.jar" kind="lib" path="C:/Users/Geoffry/.m2/repository/org/yaml/snakeyaml/2.2/snakeyaml-2.2.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.springframework/spring-aop/6.0.12/7d4e58b3236c1dc16e99e7ed8a116692e8fd4ea4/spring-aop-6.0.12-sources.jar" kind="lib" path="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.springframework/spring-aop/6.0.12/ba7ecdbdc2abaf172d49692b8110f65ecd2d250c/spring-aop-6.0.12.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.springframework/spring-beans/6.0.12/a69667962f83aca76e19183a94f06f769e687757/spring-beans-6.0.12-sources.jar" kind="lib" path="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.springframework/spring-beans/6.0.12/dfa53afbf1ab65f36c60333443ed1109ed331504/spring-beans-6.0.12.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.springframework/spring-expression/6.0.12/4ef3403149d7a56c3a99190edca4446b599d81c5/spring-expression-6.0.12-sources.jar" kind="lib" path="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.springframework/spring-expression/6.0.12/9283ad418f06f918e834b1981998a5f62a05b355/spring-expression-6.0.12.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.springframework/spring-core/6.0.12/f4bd301eca1ca9d46f55d2ba673219e61a7c2d7e/spring-core-6.0.12-sources.jar" kind="lib" path="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.springframework/spring-core/6.0.12/a55e70359371b03ee29dacd75c3b40d0baf3a656/spring-core-6.0.12.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/Geoffry/.m2/repository/com/google/guava/failureaccess/1.0.2/failureaccess-1.0.2-sources.jar" kind="lib" path="C:/Users/Geoffry/.m2/repository/com/google/guava/failureaccess/1.0.2/failureaccess-1.0.2.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/Geoffry/.m2/repository/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/Geoffry/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2-sources.jar" kind="lib" path="C:/Users/Geoffry/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/Geoffry/.m2/repository/com/google/errorprone/error_prone_annotations/2.36.0/error_prone_annotations-2.36.0-sources.jar" kind="lib" path="C:/Users/Geoffry/.m2/repository/com/google/errorprone/error_prone_annotations/2.36.0/error_prone_annotations-2.36.0.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/Geoffry/.m2/repository/com/google/j2objc/j2objc-annotations/3.0.0/j2objc-annotations-3.0.0-sources.jar" kind="lib" path="C:/Users/Geoffry/.m2/repository/com/google/j2objc/j2objc-annotations/3.0.0/j2objc-annotations-3.0.0.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/io.micrometer/micrometer-observation/1.12.2/9eab734cdef7fbc3de8b5cc861436626ed67b56/micrometer-observation-1.12.2-sources.jar" kind="lib" path="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/io.micrometer/micrometer-observation/1.12.2/e082b05a2527fc24ea6fbe4c4b7ae34653aace81/micrometer-observation-1.12.2.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/io.micrometer/micrometer-commons/1.12.2/c48f53e173ddcb6e5b4e1d6eab6ddbe1a8c0e086/micrometer-commons-1.12.2-sources.jar" kind="lib" path="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/io.micrometer/micrometer-commons/1.12.2/b44127d8ec7b3ef11a01912d1e6474e1167f3929/micrometer-commons-1.12.2.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.apache.datasketches/datasketches-memory/2.2.0/6fbc84921b07c8b6d99d398e8a08d8d09376bb3c/datasketches-memory-2.2.0-sources.jar" kind="lib" path="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.apache.datasketches/datasketches-memory/2.2.0/f0f717ed3495ed2e58d96e0084f73db0c7b3ba3d/datasketches-memory-2.2.0.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.xerial.snappy/snappy-java/1.1.8.2/61f2182a5d8b44c8031ef12e39105fa69d3d8757/snappy-java-1.1.8.2-sources.jar" kind="lib" path="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.xerial.snappy/snappy-java/1.1.8.2/4205e3cf9c44264731ad002fcd2520eb1b2bb801/snappy-java-1.1.8.2.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-api/2.23.1/b504efc545603fa3364ae397fe733cb9f527e67e/log4j-api-2.23.1-sources.jar" kind="lib" path="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-api/2.23.1/9c15c29c526d9c6783049c0a77722693c66706e1/log4j-api-2.23.1.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.apache.yetus/audience-annotations/0.12.0/bd1956b421da92ae8aef1a86af342d2de562d441/audience-annotations-0.12.0-sources.jar" kind="lib" path="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.apache.yetus/audience-annotations/0.12.0/e0efa60318229590103e31c69ebdaae56d903644/audience-annotations-0.12.0.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/io.netty/netty-handler/4.1.105.Final/16f4166e41616a08fbc5bcc968adb54e3af02e3b/netty-handler-4.1.105.Final-sources.jar" kind="lib" path="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/io.netty/netty-handler/4.1.105.Final/7e997e63d0a445c4b352bcd38474d50f06f2eaf1/netty-handler-4.1.105.Final.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/io.netty/netty-transport-native-epoll/4.1.105.Final/d85e3461d5f5f92ebb6e625adb8a9c9b63952672/netty-transport-native-epoll-4.1.105.Final-sources.jar" kind="lib" path="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/io.netty/netty-transport-native-epoll/4.1.105.Final/8d20e17cff9ec1aaa3bb133ae7cb339c991bc105/netty-transport-native-epoll-4.1.105.Final-linux-x86_64.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/io.netty/netty-tcnative-boringssl-static/2.0.61.Final/944722ba2883fe5825a0c6b38dc727d7151a9371/netty-tcnative-boringssl-static-2.0.61.Final.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.springframework/spring-jcl/6.0.12/4f9134fd1af7cc322ca14b7e74d0d9a8ecd3a985/spring-jcl-6.0.12-sources.jar" kind="lib" path="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.springframework/spring-jcl/6.0.12/44a1d1d105063d4eb9c5dc705245ef6fa4162520/spring-jcl-6.0.12.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/io.netty/netty-transport-classes-epoll/4.1.105.Final/756321aa80d679191837d6c256a1d4e0fb2dce08/netty-transport-classes-epoll-4.1.105.Final-sources.jar" kind="lib" path="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/io.netty/netty-transport-classes-epoll/4.1.105.Final/e006d3b0cfd5b8133c9fcebfa05d9ae80a721e80/netty-transport-classes-epoll-4.1.105.Final.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/io.netty/netty-transport-native-unix-common/4.1.105.Final/4363ec009a7fed09aeed8347bcf3efc167f3d557/netty-transport-native-unix-common-4.1.105.Final-sources.jar" kind="lib" path="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/io.netty/netty-transport-native-unix-common/4.1.105.Final/8bb8ab3a8f1e730c6e7d1d1cf8fc24221eacc6cd/netty-transport-native-unix-common-4.1.105.Final.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/io.netty/netty-codec/4.1.105.Final/66a9f9b90c85dcafb6311ff2a66871d7218eb180/netty-codec-4.1.105.Final-sources.jar" kind="lib" path="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/io.netty/netty-codec/4.1.105.Final/4733830b4b2b9111e9bf8136691d07b20027cd51/netty-codec-4.1.105.Final.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/io.netty/netty-transport/4.1.105.Final/5ae3f6853add12183963130c4cff102a123c83b5/netty-transport-4.1.105.Final-sources.jar" kind="lib" path="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/io.netty/netty-transport/4.1.105.Final/5184e1308ed7d853d7061b4e21e47e8de43a28df/netty-transport-4.1.105.Final.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/io.netty/netty-resolver/4.1.105.Final/9eacfb88031c3523a2ae0df2a8e822daaa6d695c/netty-resolver-4.1.105.Final-sources.jar" kind="lib" path="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/io.netty/netty-resolver/4.1.105.Final/e69687e013ded60f3f9054164e121c2702200711/netty-resolver-4.1.105.Final.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/io.netty/netty-buffer/4.1.105.Final/e31eafd1d25ff0d97f9fb2c4394bff70df92592e/netty-buffer-4.1.105.Final-sources.jar" kind="lib" path="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/io.netty/netty-buffer/4.1.105.Final/c1c1b4d2c89d2f74c80a2701c124ecfde1ecf067/netty-buffer-4.1.105.Final.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/io.netty/netty-common/4.1.105.Final/e9bed26e0d27437de6837bd3822aad74288db625/netty-common-4.1.105.Final-sources.jar" kind="lib" path="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/io.netty/netty-common/4.1.105.Final/8438fc1de4c10301bb53ceb49ed8db74bd40cc2c/netty-common-4.1.105.Final.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/io.netty/netty-tcnative-classes/2.0.61.Final/27742406855cfcad2ed35dccbadb17fc0ebf1ee6/netty-tcnative-classes-2.0.61.Final-sources.jar" kind="lib" path="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/io.netty/netty-tcnative-classes/2.0.61.Final/4c6ae851ed97921bc6c6b64e019c2b039f49131a/netty-tcnative-classes-2.0.61.Final.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.eclipse.emfcloud/emfjson-jackson/2.2.0/361e2bf5a79b6741fec0e72240cf9b51274c545a/emfjson-jackson-2.2.0-sources.jar" kind="lib" path="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.eclipse.emfcloud/emfjson-jackson/2.2.0/6f0b3d7748acb358ed434393c6d90e71872460dc/emfjson-jackson-2.2.0.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.eclipse.emf/org.eclipse.emf.common/2.41.0/924cc253a5685953d94cef0ec5335b149c608e94/org.eclipse.emf.common-2.41.0-sources.jar" kind="lib" path="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.eclipse.emf/org.eclipse.emf.common/2.41.0/8fa8b2431c5e505a66873be79971336e628b6d60/org.eclipse.emf.common-2.41.0.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-slf4j-impl/2.17.2/74a61478bcc5401ad43eb5ed422d4e987343cbd7/log4j-slf4j-impl-2.17.2-sources.jar" kind="lib" path="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-slf4j-impl/2.17.2/183f7c95fc981f3e97d008b363341343508848e/log4j-slf4j-impl-2.17.2.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-core/2.17.2/88b2d34add2e0370c6a6d03ac7b3609b143e46bd/log4j-core-2.17.2-sources.jar" kind="lib" path="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-core/2.17.2/fa43ba4467f5300b16d1e0742934149bfc5ac564/log4j-core-2.17.2.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.apache.hadoop/hadoop-client-runtime/3.3.6/81065531e63fccbe85fb04a3274709593fb00d3c/hadoop-client-runtime-3.3.6.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.hdrhistogram/HdrHistogram/2.1.12/d8cf7bad79ef75fd41395c5f464ea38777463d95/HdrHistogram-2.1.12-sources.jar" kind="lib" path="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.hdrhistogram/HdrHistogram/2.1.12/6eb7552156e0d517ae80cc2247be1427c8d90452/HdrHistogram-2.1.12.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.latencyutils/LatencyUtils/2.0.3/fbc38259e2077a428984637d811dac542a6a913e/LatencyUtils-2.0.3-sources.jar" kind="lib" path="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.latencyutils/LatencyUtils/2.0.3/769c0b82cb2421c8256300e907298a9410a2a3d3/LatencyUtils-2.0.3.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/Geoffry/cormacWk/FHIRSDS/libs/fhir.emf-4.3.0.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
 </classpath>
