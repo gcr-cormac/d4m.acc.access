@@ -9,13 +9,6 @@ import org.apache.accumulo.core.client.BatchWriter;
 
 public abstract class MutationBaseBuilder {
 	
-	protected BatchWriter bw;
-
-	public MutationBaseBuilder(BatchWriter bw) {
-		super();
-		this.bw = bw;
-	}
-
 	public byte[] objectToByteArray(Object obj) {
 	    try {
 	        ByteArrayOutputStream byteStream = new ByteArrayOutputStream();
