@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.hl7.fhir.Bundle;
 import org.hl7.fhir.BundleEntry;
+import org.hl7.fhir.FhirFactory;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Resource; // Adjust this import based on your actual FHIR base type
 import org.slf4j.Logger;
@@ -66,24 +67,24 @@ import com.fasterxml.jackson.core.JsonToken;
 		// 	}
 		// }
 
-		public String getResourceId(EObject eObject) {
-		    EStructuralFeature idFeature = eObject.eClass().getEStructuralFeature("id");
-		    if (idFeature != null) {
-		        Object idValue = eObject.eGet(idFeature);
-		        return idValue != null ? idValue.toString() : null;
-		    }
-		    return null;		
+		public org.hl7.fhir.String getResourceId(EObject eObject) {
+			if (eObject instanceof org.hl7.fhir.Resource) {
+				org.hl7.fhir.Resource resource = (org.hl7.fhir.Resource) eObject;
+				return resource.getId();
+			} else {
+				return null;
+			}	
 		}
 
 		public void setResourceId(EObject eObject, String id) {
-		    EStructuralFeature idFeature = eObject.eClass().getEStructuralFeature("id");
-		    if (idFeature != null) {
-		        eObject.eSet(idFeature, id);
-		    } else {
-		        log.error("The 'id' feature was not found in " + eObject.eClass().getName());
-		    }
+			if (eObject instanceof org.hl7.fhir.Resource) {
+				org.hl7.fhir.Resource resource = (org.hl7.fhir.Resource) eObject;
+				org.hl7.fhir.String fhirId = FhirFactory.eINSTANCE.createString();
+				fhirId.setValue(id);
+				resource.setId(fhirId);  // Assuming the generated class has a setId(String) method
+			}
 		}
-
+		
 		/**
 		 * Checks whether the given string is a valid UUID.
 		 */
@@ -99,8 +100,8 @@ import com.fasterxml.jackson.core.JsonToken;
 		}
 	
 		EObject checkId(EObject eObject) {
-			String id = getResourceId(eObject);
-			if (!isValidUUID(id)) {
+			org.hl7.fhir.String id = getResourceId(eObject);
+			if (!isValidUUID(id.getValue())) {
 				setResourceId(eObject, UUID.randomUUID().toString());
 			}
 			return eObject;

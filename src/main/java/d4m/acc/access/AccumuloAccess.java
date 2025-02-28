@@ -34,25 +34,24 @@ import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonToken;
 
+import edu.mit.ll.cloud.connection.ConnectionProperties;
+import edu.mit.ll.d4m.db.cloud.D4mDataSearch;
+import edu.mit.ll.d4m.db.cloud.accumulo.D4mDbQueryAccumulo;
+import edu.mit.ll.d4m.db.cloud.D4mDbResultSet;
+import edu.mit.ll.d4m.db.cloud.D4mException;
+
 @Component
 public class AccumuloAccess {
 
 	private static final Logger log = LoggerFactory.getLogger(AccumuloAccess.class);
 	protected AccumuloClient client;
-    protected FhirProcessor processor;
 
-	final String PAIR_DECOR = "T";
-	final String DEGREE_DECOR = "Deg";
+	protected FhirProcessor processor;
+	final Properties clientProperties;
 
 	public AccumuloAccess() {
 		super();
-		Properties clientProperties = new Properties();
-		try {
-			clientProperties
-					.load(AccumuloAccess.class.getClassLoader().getResourceAsStream("accumulo-client.properties"));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		clientProperties = loadAccumuloProperties();
 		this.client = Accumulo.newClient().from(clientProperties).build();
 	}
 
@@ -60,6 +59,29 @@ public class AccumuloAccess {
 		log.info("list==>");
 		TableOperations ops = client.tableOperations();
 		return ops.list();
+	}
+
+	public RCVs query(String row, String col, String tableName) {
+
+		D4mDbQueryAccumulo accumuloQuery = new D4mDbQueryAccumulo(client2Connection(clientProperties), tableName) ;
+		D4mDbResultSet result = null;
+		RCVs rcvs = null;
+		try {
+			result = accumuloQuery.doMatlabQuery(row, col, AccumuloFinals.FAMILY, "");
+			rcvs = D4mResultSet2RCVSConvert.convert(result);
+		} catch (D4mException e) {
+			log.error("", e);
+		}
+		return rcvs;
+	}
+		
+	ConnectionProperties client2Connection(Properties clientProperties) {
+		ConnectionProperties props = new ConnectionProperties();
+		props.setInstanceName(clientProperties.getProperty("instance.name"));
+		props.setHost(clientProperties.getProperty("instance.zookeepers"));
+		props.setUser(clientProperties.getProperty("auth.principal"));
+		props.setPass(clientProperties.getProperty("auth.token"));
+		return props;
 	}
 
 	public String createTable(String tableName) {
@@ -76,8 +98,8 @@ public class AccumuloAccess {
 		TableOperations ops = client.tableOperations();
 		try {
 			ops.create(tableName);
-			ops.create(String.format("%s%s", tableName, PAIR_DECOR));
-			ops.create(String.format("%s%s", tableName, DEGREE_DECOR));
+			ops.create(String.format("%s%s", tableName, AccumuloFinals.PAIR_DECOR));
+			ops.create(String.format("%s%s", tableName, AccumuloFinals.DEGREE_DECOR));
 		} catch (AccumuloException | AccumuloSecurityException | TableExistsException e) {
 			e.printStackTrace();
 		}
@@ -118,7 +140,7 @@ public class AccumuloAccess {
 
 		for (BundleEntry entry : entries) {
 			EObject eObject = entry.eContents().get(0);
-            if (processor.isValidUUID(processor.getResourceId(eObject))) {
+            if (processor.isValidUUID(processor.getResourceId(eObject).getValue())) {
                 processor.checkId(eObject);
             }
             doInsert(multiTableWriter, eObject, tableName);
@@ -138,12 +160,28 @@ public class AccumuloAccess {
 		MutationDegBuilder mutDeg = new MutationDegBuilder();
 		try {
 			multiTableWriter.getBatchWriter(tableName).addMutation(mut.doShred(eObject));
-			multiTableWriter.getBatchWriter(String.format("%s%s", tableName, PAIR_DECOR))
+			multiTableWriter.getBatchWriter(String.format("%s%s", tableName, AccumuloFinals.PAIR_DECOR))
 					.addMutation(mutT.doShred(eObject));
-			multiTableWriter.getBatchWriter(String.format("%s%s", tableName, DEGREE_DECOR))
+			multiTableWriter.getBatchWriter(String.format("%s%s", tableName, AccumuloFinals.DEGREE_DECOR))
 					.addMutation(mutDeg.doShred(eObject));
 		} catch (AccumuloException | AccumuloSecurityException | TableNotFoundException e) {
 			log.error("", e);
 		}
 	}
+
+    Properties loadAccumuloProperties() {
+        Properties properties = new Properties();
+        String propertiesFileName = "accumulo-client.properties";
+
+        try (InputStream input = AccumuloAccess.class.getClassLoader().getResourceAsStream(propertiesFileName)) {
+            if (input == null) {
+                throw new IOException("Unable to find " + propertiesFileName);
+            }
+            properties.load(input);
+        } catch (IOException e) {
+            throw new RuntimeException("Error loading " + propertiesFileName, e);
+        }
+
+        return properties;
+    }
 }
