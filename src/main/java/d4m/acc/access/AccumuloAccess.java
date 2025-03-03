@@ -45,8 +45,6 @@ public class AccumuloAccess {
 
 	private static final Logger log = LoggerFactory.getLogger(AccumuloAccess.class);
 	protected AccumuloClient client;
-
-	protected FhirProcessor processor;
 	final Properties clientProperties;
 
 	public AccumuloAccess() {
@@ -119,8 +117,6 @@ public class AccumuloAccess {
 
 	public void insertPair(String resource, SDS_FORMAT format, String tableName) {
 
-		String resourceType = null;
-
 		if (!client.tableOperations().exists(tableName)) {
 			createTablePair(tableName);
 		}
@@ -129,7 +125,7 @@ public class AccumuloAccess {
 		InputStream reader = new ByteArrayInputStream(bytes);
 		EObject eObject = FHIRSDS.load(reader, format);
 		if (processor.isBundle(resource)) {
-			EList<BundleEntry> entries = processor.getEntries(eObject);
+			EList<BundleEntry> entries = FhirProcessor.getEntries(eObject);
 			doInsert(entries, tableName);
 		}
 	}
@@ -140,8 +136,8 @@ public class AccumuloAccess {
 
 		for (BundleEntry entry : entries) {
 			EObject eObject = entry.eContents().get(0);
-            if (processor.isValidUUID(processor.getResourceId(eObject).getValue())) {
-                processor.checkId(eObject);
+            if (FhirProcessor.isValidUUID(FhirProcessor.getResourceId(eObject).getValue())) {
+            	FhirProcessor.checkId(eObject);
             }
             doInsert(multiTableWriter, eObject, tableName);
 		}
@@ -155,15 +151,16 @@ public class AccumuloAccess {
 	}
 
 	public void doInsert(MultiTableBatchWriter multiTableWriter, EObject eObject, String tableName) {
-		MutationBuilder mut = new MutationBuilder();
-		MutationTBuilder mutT = new MutationTBuilder();
-		MutationDegBuilder mutDeg = new MutationDegBuilder();
 		try {
-			multiTableWriter.getBatchWriter(tableName).addMutation(mut.doShred(eObject));
-			multiTableWriter.getBatchWriter(String.format("%s%s", tableName, AccumuloFinals.PAIR_DECOR))
-					.addMutation(mutT.doShred(eObject));
-			multiTableWriter.getBatchWriter(String.format("%s%s", tableName, AccumuloFinals.DEGREE_DECOR))
-					.addMutation(mutDeg.doShred(eObject));
+			BatchWriter bw = multiTableWriter.getBatchWriter(tableName);
+			MutationBuilder mut = new MutationBuilder();
+			bw = mut.doShred(eObject, bw);
+			BatchWriter bwT = multiTableWriter.getBatchWriter(String.format("%s%s", tableName, AccumuloFinals.PAIR_DECOR));
+			MutationTBuilder mutT = new MutationTBuilder();
+			bwT = mutT.doShred(eObject, bwT);
+			BatchWriter bwDeg = multiTableWriter.getBatchWriter(String.format("%s%s", tableName, AccumuloFinals.DEGREE_DECOR));
+			MutationDegBuilder mutDeg = new MutationDegBuilder();
+			bwDeg.addMutation(mutDeg.doShred(eObject, bwDeg));
 		} catch (AccumuloException | AccumuloSecurityException | TableNotFoundException e) {
 			log.error("", e);
 		}

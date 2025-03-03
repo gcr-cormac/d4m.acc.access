@@ -1,5 +1,6 @@
 package d4m.acc.access;
 
+import org.apache.accumulo.core.client.BatchWriter;
 import org.apache.accumulo.core.data.Mutation;
 import org.apache.accumulo.core.data.Value;
 import org.apache.hadoop.io.Text;
@@ -10,7 +11,7 @@ import org.hl7.fhir.Resource;
 
 public class MutationDegBuilder extends MutationBaseBuilder {
 	
-	public Mutation doShred(final EObject eObject) {
+	public Mutation doShred(final EObject eObject, BatchWriter bw) {
 		EClass eClass = eObject.eClass();
 		Resource resource = (Resource)eObject;
 		org.hl7.fhir.String id = resource.getId();

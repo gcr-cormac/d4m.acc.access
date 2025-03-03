@@ -67,7 +67,7 @@ import com.fasterxml.jackson.core.JsonToken;
 		// 	}
 		// }
 
-		public org.hl7.fhir.String getResourceId(EObject eObject) {
+		public static org.hl7.fhir.String getResourceId(EObject eObject) {
 			if (eObject instanceof org.hl7.fhir.Resource) {
 				org.hl7.fhir.Resource resource = (org.hl7.fhir.Resource) eObject;
 				return resource.getId();
@@ -76,19 +76,19 @@ import com.fasterxml.jackson.core.JsonToken;
 			}	
 		}
 
-		public void setResourceId(EObject eObject, String id) {
+		public static void setResourceId(EObject eObject, String id) {
 			if (eObject instanceof org.hl7.fhir.Resource) {
 				org.hl7.fhir.Resource resource = (org.hl7.fhir.Resource) eObject;
 				org.hl7.fhir.String fhirId = FhirFactory.eINSTANCE.createString();
 				fhirId.setValue(id);
-				resource.setId(fhirId);  // Assuming the generated class has a setId(String) method
+				resource.setId(fhirId);
 			}
 		}
 		
 		/**
 		 * Checks whether the given string is a valid UUID.
 		 */
-		boolean isValidUUID(String id) {
+		static boolean isValidUUID(String id) {
 			if (id == null) return false;
 			try {
 				java.util.UUID.fromString(id);
@@ -99,7 +99,7 @@ import com.fasterxml.jackson.core.JsonToken;
 			}
 		}
 	
-		EObject checkId(EObject eObject) {
+		public static EObject checkId(EObject eObject) {
 			org.hl7.fhir.String id = getResourceId(eObject);
 			if (!isValidUUID(id.getValue())) {
 				setResourceId(eObject, UUID.randomUUID().toString());
@@ -107,7 +107,7 @@ import com.fasterxml.jackson.core.JsonToken;
 			return eObject;
 		}
 
-	public EList<BundleEntry> getEntries(EObject eObject) {
+	public static EList<BundleEntry> getEntries(EObject eObject) {
 		if (eObject instanceof Bundle) {
 			Bundle bundle = (Bundle)eObject;
 			return bundle.getEntry();

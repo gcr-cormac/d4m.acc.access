@@ -18,9 +18,9 @@ public class D4mResultSet2RCVSConvert {
         
         for (int i = 0; i < size; i++) {
             D4mDbRow rowObj = rows.get(i);
-            r[i] = rowObj.getRow();  // Assuming getR() returns the row identifier
-            c[i] = rowObj.getColumn();  // Assuming getC() returns the column identifier
-            v[i] = rowObj.getValue();  // Assuming getV() returns the value
+            r[i] = rowObj.getRow();
+            c[i] = rowObj.getColumn();
+            v[i] = rowObj.getValue();
         }
         
         return new RCVs(r, c, v, AccumuloFinals.FAMILY);
