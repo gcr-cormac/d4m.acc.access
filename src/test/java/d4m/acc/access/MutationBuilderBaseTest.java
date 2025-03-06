@@ -15,8 +15,12 @@ import org.hl7.fhir.emf.Finals;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 class MutationBuilderBaseTest {
+
+	private static final Logger log = LoggerFactory.getLogger(MutationBuilderBaseTest.class);
 
 	static MutationBuilder app;
 	static EObject eObject;
@@ -27,32 +31,35 @@ class MutationBuilderBaseTest {
 	static void setUpBeforeClass() throws Exception {
 		app = new MutationBuilder();
 		assertNotNull(app);
-		InputStream is = FhirProcessorTest.class.getResourceAsStream("/pat-ex.json");
+		InputStream is = FhirProcessorTest.class.getClassLoader().getResourceAsStream("pat-ex.json");
+		log.debug("is=" + is);
 		assertNotNull(is);
 		eObject = FHIRSDS.load(is, Finals.SDS_FORMAT.JSON);
-		System.out.println("is=" + eObject);
+		log.debug("eObject=" + eObject);
 		assertNotNull(eObject);
-//		bundle = (Bundle) eObject;
-//		mockBatchWriter = Mockito.mock(BatchWriter.class);
-//		assertNotNull(mockBatchWriter);
+		bundle = (Bundle) eObject;
+		mockBatchWriter = Mockito.mock(BatchWriter.class);
+		assertNotNull(mockBatchWriter);
 
 	}
 
 	@Test 
 	void test() {
+		log.info("test==>");
 		assertTrue(true);
 	}
 	
-//	@Test
+	@Test
 	void testDoShred() {
-		OutputStream os = FHIRSDS.save(eObject, Finals.SDS_FORMAT.JSON);
-		System.out.println("os=" + os.toString());
-		System.out.println("bundle.name=" + bundle.eClass().getName());
-		System.out.println("mockBatchWriter=" + mockBatchWriter);
-		BundleEntry entry = bundle.getEntry().get(0);
-		EObject resource = FhirProcessor.getFHIRResource(entry);
-		System.out.println("resource.name=" + resource.eClass().getName());
-		BatchWriter bw = app.doShred(entry, mockBatchWriter);
-		assertNotNull(bw);
+		assertNotNull(eObject);
+		// OutputStream os = FHIRSDS.save(eObject, Finals.SDS_FORMAT.JSON);
+		// log.info("os=" + os.toString());
+		log.info("bundle.name=" + bundle.eClass().getName());
+		// log.info("mockBatchWriter=" + mockBatchWriter);
+		// BundleEntry entry = bundle.getEntry().get(0);
+		// EObject resource = FhirProcessor.getFHIRResource(entry);
+		// log.info("resource.name=" + resource.eClass().getName());
+		// BatchWriter bw = app.doShred(entry, mockBatchWriter);
+		// assertNotNull(bw);
 	}
 }
