@@ -27,17 +27,4 @@ public class MutationTBuilder extends MutationBaseBuilder {
 		}
 		return bw;
 	}
-
-	BatchWriter doShredOne(final EObject eObject, final EReference eReference, BatchWriter bw) {
-		Mutation mut = createMutation(eReference);
-		Text qualifier = createQualifier(eObject);
-		Value value = createValue(eObject, eReference);
-		mut.put(new Text(""), qualifier, value);
-		try {
-			bw.addMutation(mut);
-		} catch (MutationsRejectedException e) {
-			log.error("", e);
-		}
-		return bw;
-	}
 }

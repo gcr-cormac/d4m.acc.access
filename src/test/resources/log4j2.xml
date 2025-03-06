@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+	<Appenders>
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36}(%L) - %msg%n" />
+		</Console>
+		<File name="File" fileName="d4m.acc.microservice.log" immediateFlush="false"
+			append="false">
+			<PatternLayout
+				pattern="%d{yyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36}(%L) - %msg%n" />
+		</File>
+	</Appenders>
+	<Loggers>    
+		<Logger name="org.apache.catalina" level="DEBUG" additivity="false">
+			<AppenderRef ref="Console"/>
+			<AppenderRef ref="File"/>
+		</Logger>
+		<Logger name="org.apache.coyote" level="DEBUG" additivity="false">
+			<AppenderRef ref="Console"/>
+			<AppenderRef ref="File"/>
+		</Logger>
+		<Logger name="org.apache.tomcat" level="DEBUG" additivity="false">
+			<AppenderRef ref="Console"/>
+			<AppenderRef ref="File"/>
+		</Logger>
+
+		<Logger name="org.springframework" level="DEBUG" additivity="false">
+			<AppenderRef ref="Console" />
+			<AppenderRef ref="File"/>
+		</Logger>
+
+		<!-- Add your own package logs -->
+		<Logger name="d4m.acc.microservice" level="DEBUG" additivity="false">
+			<AppenderRef ref="Console" />
+			<AppenderRef ref="File"/>
+		</Logger>
+		<Root level="DEBUG">
+			<AppenderRef ref="Console" />
+ 			<AppenderRef ref="File"/>
+		</Root>
+	</Loggers>
+</Configuration>

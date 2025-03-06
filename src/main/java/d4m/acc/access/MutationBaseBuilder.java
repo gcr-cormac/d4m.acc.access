@@ -23,12 +23,11 @@ public abstract class MutationBaseBuilder {
 
 	public BatchWriter doShred(final EObject eObject, BatchWriter bw) {
 		EClass eClass = eObject.eClass();
-
 		for (EAttribute eAttribute : eClass.getEAllAttributes()) {
 			bw = doShred(eObject, eAttribute, bw);
 		}
 
-		for (EReference eReference : eObject.eClass().getEAllReferences()) {
+		for (EReference eReference : eClass.getEAllReferences()) {
 			Object value = eObject.eGet(eReference);
 			if (value instanceof EObject) {
 				EObject referenced = (EObject) value;
@@ -64,18 +63,20 @@ public abstract class MutationBaseBuilder {
 		}
 		if (eReference.isMany()) {
 			log.info("isMany=" + eReference.getName());
-			for (EObject eObject1 : eReference.eContents()) {
-				
-				bw = doShredOne(eObject1, eReference, bw);
+			for (EObject eObject1 : eReference.eContents()) {				
+				bw = doShredOne(eObject1, bw);
 			}
 		} else {
-			bw = doShredOne(eObject, eReference, bw);
+			bw = doShredOne(eObject, bw);
 		}
 		return bw;
 	}
 	
-	abstract BatchWriter doShredOne(final EObject eObject, final EReference eReference, BatchWriter bw);
-
+	BatchWriter doShredOne(EObject eObject, BatchWriter bw) {
+		eObject = FhirProcessor.checkId(eObject);
+		return doShred(eObject, bw);
+	}
+	
 	public byte[] objectToByteArray(Object obj) {
 	    try {
 	        ByteArrayOutputStream byteStream = new ByteArrayOutputStream();
@@ -181,8 +182,11 @@ public abstract class MutationBaseBuilder {
 	}
 	
 	Value createValue(final EObject eObject, EReference eReference) {
+		System.out.println("eReference=" + eReference);
 		Object fromValue = eObject.eGet(eReference);
+		System.out.println("fromValue=" + fromValue);
 		byte[] toValue = objectToByteArray(fromValue);
+		System.out.println("toValue=" + toValue);
 		return new Value(toValue);
 	}
 }

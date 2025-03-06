@@ -15,28 +15,16 @@ public class MutationBuilder extends MutationBaseBuilder {
 
 	static final Logger log = LoggerFactory.getLogger(MutationBuilder.class);
 
-	BatchWriter doShredOne(final EObject eObject, final EAttribute eAttribute, BatchWriter bw) {
+	BatchWriter doShredOne(EObject eObject, EAttribute eAttribute, BatchWriter bw) {
 		try {
+			eObject = FhirProcessor.checkId(eObject);
 			Mutation mut = createMutation(eObject);
 			Text qualifier = createQualifier(eAttribute);
 			Value value = createValue(eObject, eAttribute);
-			mut.put(new Text(""), qualifier, value);
+			mut.put(AccumuloFinals.FAMILY, qualifier, value);
 			bw.addMutation(mut);
 		} catch (MutationsRejectedException e) {
 			log.error("", e);
-		}
-		return bw;
-	}
-
-	BatchWriter doShredOne(final EObject eObject, final EReference eReference, BatchWriter bw) {
-		Mutation mut = createMutation(eObject);
-		Text qualifier = createQualifier(eReference);
-		Value value = createValue(eObject, eReference);
-		mut.put(new Text(""), qualifier, value);
-		try {
-			bw.addMutation(mut);
-		} catch (MutationsRejectedException e) {
-			log.error("", e);		
 		}
 		return bw;
 	}

@@ -23,6 +23,6 @@ public class D4mResultSet2RCVSConvert {
             v[i] = rowObj.getValue();
         }
         
-        return new RCVs(r, c, v, AccumuloFinals.FAMILY);
+        return new RCVs(r, c, v, AccumuloFinals.FAMILY.toString());
     }
 }

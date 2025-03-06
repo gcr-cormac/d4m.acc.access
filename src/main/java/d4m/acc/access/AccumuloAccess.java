@@ -6,7 +6,6 @@ import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.Properties;
 import java.util.SortedSet;
-import java.util.UUID;
 
 import org.apache.accumulo.core.client.Accumulo;
 import org.apache.accumulo.core.client.AccumuloClient;
@@ -19,10 +18,9 @@ import org.apache.accumulo.core.client.MutationsRejectedException;
 import org.apache.accumulo.core.client.TableExistsException;
 import org.apache.accumulo.core.client.TableNotFoundException;
 import org.apache.accumulo.core.client.admin.TableOperations;
-import org.apache.accumulo.core.security.Authorizations;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
-import org.hl7.fhir.Bundle;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.hl7.fhir.BundleEntry;
 import org.hl7.fhir.emf.FHIRSDS;
 import org.hl7.fhir.emf.Finals.SDS_FORMAT;
@@ -30,20 +28,16 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-import com.fasterxml.jackson.core.JsonFactory;
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.JsonToken;
-
 import edu.mit.ll.cloud.connection.ConnectionProperties;
-import edu.mit.ll.d4m.db.cloud.D4mDataSearch;
-import edu.mit.ll.d4m.db.cloud.accumulo.D4mDbQueryAccumulo;
 import edu.mit.ll.d4m.db.cloud.D4mDbResultSet;
 import edu.mit.ll.d4m.db.cloud.D4mException;
+import edu.mit.ll.d4m.db.cloud.accumulo.D4mDbQueryAccumulo;
 
 @Component
 public class AccumuloAccess {
 
 	private static final Logger log = LoggerFactory.getLogger(AccumuloAccess.class);
+	
 	protected AccumuloClient client;
 	final Properties clientProperties;
 
@@ -65,7 +59,7 @@ public class AccumuloAccess {
 		D4mDbResultSet result = null;
 		RCVs rcvs = null;
 		try {
-			result = accumuloQuery.doMatlabQuery(row, col, AccumuloFinals.FAMILY, "");
+			result = accumuloQuery.doMatlabQuery(row, col, AccumuloFinals.FAMILY.toString(), "");
 			rcvs = D4mResultSet2RCVSConvert.convert(result);
 		} catch (D4mException e) {
 			log.error("", e);
@@ -124,7 +118,7 @@ public class AccumuloAccess {
 		byte[] bytes = resource.getBytes(StandardCharsets.UTF_8);
 		InputStream reader = new ByteArrayInputStream(bytes);
 		EObject eObject = FHIRSDS.load(reader, format);
-		if (processor.isBundle(resource)) {
+		if (FhirProcessor.isBundle(resource)) {
 			EList<BundleEntry> entries = FhirProcessor.getEntries(eObject);
 			doInsert(entries, tableName);
 		}
@@ -134,12 +128,12 @@ public class AccumuloAccess {
         
 		MultiTableBatchWriter multiTableWriter = client.createMultiTableBatchWriter(new BatchWriterConfig());
 
+		System.out.println("entries.size=" + entries.size());
 		for (BundleEntry entry : entries) {
 			EObject eObject = entry.eContents().get(0);
-            if (FhirProcessor.isValidUUID(FhirProcessor.getResourceId(eObject).getValue())) {
-            	FhirProcessor.checkId(eObject);
-            }
-            doInsert(multiTableWriter, eObject, tableName);
+            FhirProcessor.checkId(eObject);
+			EObject resource = FhirProcessor.getFHIRResource(entry);
+            doInsert(multiTableWriter, resource, tableName);
 		}
 
 		try {
@@ -158,9 +152,9 @@ public class AccumuloAccess {
 			BatchWriter bwT = multiTableWriter.getBatchWriter(String.format("%s%s", tableName, AccumuloFinals.PAIR_DECOR));
 			MutationTBuilder mutT = new MutationTBuilder();
 			bwT = mutT.doShred(eObject, bwT);
-			BatchWriter bwDeg = multiTableWriter.getBatchWriter(String.format("%s%s", tableName, AccumuloFinals.DEGREE_DECOR));
-			MutationDegBuilder mutDeg = new MutationDegBuilder();
-			bwDeg.addMutation(mutDeg.doShred(eObject, bwDeg));
+//			BatchWriter bwDeg = multiTableWriter.getBatchWriter(String.format("%s%s", tableName, AccumuloFinals.DEGREE_DECOR));
+//			MutationDegBuilder mutDeg = new MutationDegBuilder();
+//			bwDeg.addMutation(mutDeg);
 		} catch (AccumuloException | AccumuloSecurityException | TableNotFoundException e) {
 			log.error("", e);
 		}

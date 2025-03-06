@@ -13,6 +13,8 @@ import java.io.OutputStream;
 import java.util.UUID;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.hl7.fhir.FhirFactory;
 import org.hl7.fhir.emf.FHIRSDS;
@@ -24,20 +26,18 @@ import org.slf4j.LoggerFactory;
 
 public class FhirProcessorTest {
 
-	private static final Logger log = LoggerFactory.getLogger(FhirProcessorTest.class);
+//	private static final Logger log = LoggerFactory.getLogger(FhirProcessorTest.class);
 	
 	static FhirProcessor app;
 	static EObject eObject;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
-		log.info("setUP==>");
 		app = new FhirProcessor();
 		InputStream is = FhirProcessorTest.class.getResourceAsStream("/fhir_adverse_event.0.json");
 		assertNotNull(is);
 		eObject = FHIRSDS.load(is, Finals.SDS_FORMAT.JSON);
 		assertNotNull(eObject);
-		log.info("<==setUP");
 	}
 
 //	@Test
@@ -47,7 +47,7 @@ public class FhirProcessorTest {
 
 	@Test
 	void testGetResourceId() {
-		org.hl7.fhir.String id = app.getResourceId(eObject);
+		org.hl7.fhir.String id = FhirProcessor.getResourceId(eObject);
 		assertNull(id);
 	}
 
@@ -56,8 +56,8 @@ public class FhirProcessorTest {
 		String id = "testId";
 		org.hl7.fhir.String fhirId = FhirFactory.eINSTANCE.createString();
 		fhirId.setValue(id);
-		app.setResourceId(eObject, id);
-		org.hl7.fhir.String id1 = app.getResourceId(eObject);
+		FhirProcessor.setResourceId(eObject, id);
+		org.hl7.fhir.String id1 = FhirProcessor.getResourceId(eObject);
 		assertNotNull(id1);
 		assertEquals(fhirId.getValue(), id1.getValue());
 	}
@@ -65,26 +65,26 @@ public class FhirProcessorTest {
 	@Test
 	void testIsValidUUID() {
 		String id = "testId";
-		assertFalse(app.isValidUUID(id));
+		assertFalse(FhirProcessor.isValidUUID(id));
 		String id1 = "1";
-		assertFalse(app.isValidUUID(id1));
+		assertFalse(FhirProcessor.isValidUUID(id1));
 		String id2 = UUID.randomUUID().toString();
-		assertTrue(app.isValidUUID(id2));
+		assertTrue(FhirProcessor.isValidUUID(id2));
 	}
 
 	@Test
 	void testCheckId() {
 		String id = "testId";
-		assertFalse(app.isValidUUID(id));
-		app.setResourceId(eObject, id);
-		app.checkId(eObject);
-		String id1 = app.getResourceId(eObject).getValue();
-		assertTrue(app.isValidUUID(id1));
+		assertFalse(FhirProcessor.isValidUUID(id));
+		FhirProcessor.setResourceId(eObject, id);
+		FhirProcessor.checkId(eObject);
+		String id1 = FhirProcessor.getResourceId(eObject).getValue();
+		assertTrue(FhirProcessor.isValidUUID(id1));
 	}
 
 	@Test
 	void testGetEntries() {
-		Object o = app.getEntries(eObject);
+		Object o = FhirProcessor.getEntries(eObject);
 		assertNotNull(o);
 		assertTrue(o instanceof EList);
 	}
@@ -95,5 +95,16 @@ public class FhirProcessorTest {
 		assertTrue(os instanceof ByteArrayOutputStream);
 		assertTrue(app.isBundle(((ByteArrayOutputStream)os).toString()));
 	}
-
+	
+	@Test
+	void testToFhirPath() {
+		Object o = FhirProcessor.getEntries(eObject);
+		EList<EObject> eList = (EList)o;
+		EObject eObject = eList.get(0);
+		EClass eClass = eObject.eClass();
+		EAttribute eAttribute = eClass.getEAllAttributes().get(0);
+		String path = FhirProcessor.toFhirPath(eAttribute, eObject);
+		System.out.println("path=" + path);
+		assertEquals("AdverseEvent.resourceType", path);
+	}
 }
