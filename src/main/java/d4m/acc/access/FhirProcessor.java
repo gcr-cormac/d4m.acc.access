@@ -7,6 +7,7 @@ import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.hl7.fhir.Bundle;
 import org.hl7.fhir.BundleEntry;
@@ -64,6 +65,24 @@ public class FhirProcessor {
 	// }
 	// }
 	// }
+	
+	/**
+	 * Extracts the actual FHIR resource from a ResourceContainer.
+	 * Uses EMF reflection to find the non-null getter method.
+	 */
+	public static EObject extractFHIRResource(BundleEntry entry) {
+		ResourceContainer resourceContainer = (ResourceContainer)entry.eContents().get(0);
+        log.trace("resourceContainer=" + resourceContainer);
+	    for (EReference eReference : resourceContainer.eClass().getEAllReferences()) {
+	        log.trace("trace=" + eReference.getName());
+	        Object value = resourceContainer.eGet(eReference);
+	        log.trace("value=" + value);
+	        if (value instanceof EObject) {
+	            return (EObject) value;
+	        }
+	    }
+	    throw new IllegalArgumentException("No FHIR resource found in ResourceContainer");
+	}
 	
 	public static EObject getFHIRResource(BundleEntry bundleEntry) {
 	    if (bundleEntry == null) {

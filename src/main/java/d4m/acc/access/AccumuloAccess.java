@@ -20,8 +20,8 @@ import org.apache.accumulo.core.client.TableNotFoundException;
 import org.apache.accumulo.core.client.admin.TableOperations;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.hl7.fhir.BundleEntry;
+import org.hl7.fhir.ResourceContainer;
 import org.hl7.fhir.emf.FHIRSDS;
 import org.hl7.fhir.emf.Finals.SDS_FORMAT;
 import org.slf4j.Logger;
@@ -130,9 +130,8 @@ public class AccumuloAccess {
 
 		System.out.println("entries.size=" + entries.size());
 		for (BundleEntry entry : entries) {
-			EObject eObject = entry.eContents().get(0);
-            FhirProcessor.checkId(eObject);
-			EObject resource = FhirProcessor.getFHIRResource(entry);
+			EObject resource = FhirProcessor.extractFHIRResource(entry);
+            FhirProcessor.checkId(resource);
             doInsert(multiTableWriter, resource, tableName);
 		}
 
@@ -160,6 +159,7 @@ public class AccumuloAccess {
 		}
 	}
 
+	
     Properties loadAccumuloProperties() {
         Properties properties = new Properties();
         String propertiesFileName = "accumulo-client.properties";

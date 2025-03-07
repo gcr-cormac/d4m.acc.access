@@ -38,6 +38,7 @@ class MutationBuilderBaseTest {
 		log.debug("eObject=" + eObject);
 		assertNotNull(eObject);
 		bundle = (Bundle) eObject;
+		log.info("size=" + bundle.getEntry().size());
 		mockBatchWriter = Mockito.mock(BatchWriter.class);
 		assertNotNull(mockBatchWriter);
 
@@ -52,14 +53,14 @@ class MutationBuilderBaseTest {
 	@Test
 	void testDoShred() {
 		assertNotNull(eObject);
-		// OutputStream os = FHIRSDS.save(eObject, Finals.SDS_FORMAT.JSON);
-		// log.info("os=" + os.toString());
-		log.info("bundle.name=" + bundle.eClass().getName());
-		// log.info("mockBatchWriter=" + mockBatchWriter);
-		// BundleEntry entry = bundle.getEntry().get(0);
-		// EObject resource = FhirProcessor.getFHIRResource(entry);
-		// log.info("resource.name=" + resource.eClass().getName());
-		// BatchWriter bw = app.doShred(entry, mockBatchWriter);
-		// assertNotNull(bw);
+		 OutputStream os = FHIRSDS.save(eObject, Finals.SDS_FORMAT.JSON);
+		 log.info("os=" + os.toString());
+		 log.info("bundle.name=" + bundle.eClass().getName());
+		 log.info("mockBatchWriter=" + mockBatchWriter);
+//		 BundleEntry entry = bundle.getEntry().size();
+//		 EObject resource = FhirProcessor.getFHIRResource(entry);
+//		 log.info("resource.name=" + resource.eClass().getName());
+//		 BatchWriter bw = app.doShred(entry, mockBatchWriter);
+//		 assertNotNull(bw);
 	}
 }
