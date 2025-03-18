@@ -54,6 +54,26 @@
 			<attribute name="gradle_used_by_scope" value="main,test"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry sourcepath="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-slf4j2-impl/2.19.0/628978b55e7195966a111841796d17ae048bce62/log4j-slf4j2-impl-2.19.0-sources.jar" kind="lib" path="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-slf4j2-impl/2.19.0/5c04bfdd63ce9dceb2e284b81e96b6a70010ee10/log4j-slf4j2-impl-2.19.0.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-core/2.19.0/b01fda4bda99fce653352ebe79897e43dee2e67f/log4j-core-2.19.0-sources.jar" kind="lib" path="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-core/2.19.0/3b6eeb4de4c49c0fe38a4ee27188ff5fee44d0bb/log4j-core-2.19.0.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-1.2-api/2.23.1/45089ee126704ea998c7a065d975d2ebadbfd21b/log4j-1.2-api-2.23.1-sources.jar" kind="lib" path="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-1.2-api/2.23.1/f733b3c818352b0735cb59ca7987e2ce7848ee15/log4j-1.2-api-2.23.1.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-api/2.23.1/b504efc545603fa3364ae397fe733cb9f527e67e/log4j-api-2.23.1-sources.jar" kind="lib" path="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-api/2.23.1/9c15c29c526d9c6783049c0a77722693c66706e1/log4j-api-2.23.1.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry sourcepath="C:/Users/Geoffry/.m2/repository/org/eclipse/emf/org.eclipse.emf.ecore.xmi/2.38.0/org.eclipse.emf.ecore.xmi-2.38.0-sources.jar" kind="lib" path="C:/Users/Geoffry/.m2/repository/org/eclipse/emf/org.eclipse.emf.ecore.xmi/2.38.0/org.eclipse.emf.ecore.xmi-2.38.0.jar">
 		<attributes>
 			<attribute name="gradle_used_by_scope" value="main,test"/>
@@ -66,7 +86,7 @@
 	</classpathentry>
 	<classpathentry sourcepath="C:/Users/Geoffry/.m2/repository/org/eclipse/emf/org.eclipse.emf.common/2.40.0/org.eclipse.emf.common-2.40.0-sources.jar" kind="lib" path="C:/Users/Geoffry/.m2/repository/org/eclipse/emf/org.eclipse.emf.common/2.40.0/org.eclipse.emf.common-2.40.0.jar">
 		<attributes>
-			<attribute name="gradle_used_by_scope" value=""/>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
 		</attributes>
 	</classpathentry>
 	<classpathentry sourcepath="C:/Users/Geoffry/.m2/repository/org/apache/hadoop/hadoop-common/2.7.2/hadoop-common-2.7.2-sources.jar" kind="lib" path="C:/Users/Geoffry/.m2/repository/org/apache/hadoop/hadoop-common/2.7.2/hadoop-common-2.7.2.jar">
@@ -255,11 +275,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry sourcepath="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.apache.hadoop/hadoop-client-api/3.3.6/b2fc0dcd9af7651b0b995e7b809db09ca162322e/hadoop-client-api-3.3.6-sources.jar" kind="lib" path="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.apache.hadoop/hadoop-client-api/3.3.6/12ac6f103a0ff29fce17a078c7c64d25320b6165/hadoop-client-api-3.3.6.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value="main,test"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry sourcepath="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-1.2-api/2.23.1/45089ee126704ea998c7a065d975d2ebadbfd21b/log4j-1.2-api-2.23.1-sources.jar" kind="lib" path="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-1.2-api/2.23.1/f733b3c818352b0735cb59ca7987e2ce7848ee15/log4j-1.2-api-2.23.1.jar">
 		<attributes>
 			<attribute name="gradle_used_by_scope" value="main,test"/>
 		</attributes>
@@ -494,11 +509,6 @@
 			<attribute name="gradle_used_by_scope" value="main,test"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry sourcepath="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-api/2.23.1/b504efc545603fa3364ae397fe733cb9f527e67e/log4j-api-2.23.1-sources.jar" kind="lib" path="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-api/2.23.1/9c15c29c526d9c6783049c0a77722693c66706e1/log4j-api-2.23.1.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value="main,test"/>
-		</attributes>
-	</classpathentry>
 	<classpathentry sourcepath="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.apache.yetus/audience-annotations/0.12.0/bd1956b421da92ae8aef1a86af342d2de562d441/audience-annotations-0.12.0-sources.jar" kind="lib" path="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.apache.yetus/audience-annotations/0.12.0/e0efa60318229590103e31c69ebdaae56d903644/audience-annotations-0.12.0.jar">
 		<attributes>
 			<attribute name="gradle_used_by_scope" value="main,test"/>
@@ -705,21 +715,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry sourcepath="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.eclipse.emfcloud/emfjson-jackson/2.2.0/361e2bf5a79b6741fec0e72240cf9b51274c545a/emfjson-jackson-2.2.0-sources.jar" kind="lib" path="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.eclipse.emfcloud/emfjson-jackson/2.2.0/6f0b3d7748acb358ed434393c6d90e71872460dc/emfjson-jackson-2.2.0.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value="main,test"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry sourcepath="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.eclipse.emf/org.eclipse.emf.common/2.41.0/924cc253a5685953d94cef0ec5335b149c608e94/org.eclipse.emf.common-2.41.0-sources.jar" kind="lib" path="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.eclipse.emf/org.eclipse.emf.common/2.41.0/8fa8b2431c5e505a66873be79971336e628b6d60/org.eclipse.emf.common-2.41.0.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value="main,test"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry sourcepath="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-slf4j-impl/2.17.2/74a61478bcc5401ad43eb5ed422d4e987343cbd7/log4j-slf4j-impl-2.17.2-sources.jar" kind="lib" path="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-slf4j-impl/2.17.2/183f7c95fc981f3e97d008b363341343508848e/log4j-slf4j-impl-2.17.2.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value="main,test"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry sourcepath="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-core/2.17.2/88b2d34add2e0370c6a6d03ac7b3609b143e46bd/log4j-core-2.17.2-sources.jar" kind="lib" path="C:/Users/Geoffry/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-core/2.17.2/fa43ba4467f5300b16d1e0742934149bfc5ac564/log4j-core-2.17.2.jar">
 		<attributes>
 			<attribute name="gradle_used_by_scope" value="main,test"/>
 		</attributes>

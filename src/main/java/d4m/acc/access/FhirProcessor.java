@@ -158,7 +158,7 @@ public class FhirProcessor {
             UUID.fromString(id);
             return true;
         } catch (IllegalArgumentException e) {
-            log.warn("Invalid UUID format: {}", id);
+            log.error("Invalid UUID format: {}", id);
             return false;
         }
     }
@@ -189,29 +189,54 @@ public class FhirProcessor {
 	}
 
 
-	public static Boolean isBundle(String resource) {
+	public static boolean isBundle(String resource) {
+	    String resourceType = null;
+	    JsonFactory factory = new JsonFactory();
 
-		String resourceType = null;
-		JsonFactory factory = new JsonFactory();
-		JsonParser parser;
-		try {
-			parser = factory.createParser(resource);
+	    try (JsonParser parser = factory.createParser(resource)) {
+	        while (parser.nextToken() != null) {
+	            if (JsonToken.FIELD_NAME.equals(parser.getCurrentToken()) &&
+	                "resourceType".equals(parser.getCurrentName())) {
 
-			while (!parser.isClosed()) {
-				JsonToken token = parser.nextToken();
-				if (token == JsonToken.FIELD_NAME && AccumuloFinals.RESOURCE_TYPE.equals(parser.getCurrentName())) {
-					parser.nextToken();
-					resourceType = parser.getValueAsString();
-					break;
-				}
-			}
-			parser.close();
-		} catch (IOException e) {
-			log.error("", e);
-		}
-		log.info("Resource Type: " + resourceType);
-		return AccumuloFinals.BUNDLE.equals(resourceType);
+	                log.debug("Found resourceType field.");
+	                parser.nextToken(); // Move to value
+
+	                resourceType = parser.getValueAsString();
+	                log.debug("Extracted resourceType=" + resourceType);
+	                break;
+	            }
+	        }
+	    } catch (IOException e) {
+	        log.error("Failed to parse JSON resource", e);
+	        return false; // Return false if JSON parsing fails
+	    }
+
+	    log.info("Final resourceType value: " + resourceType);
+	    return "Bundle".equals(resourceType); // Direct comparison instead of AccumuloFinals
 	}
+
+//	public static boolean isBundle(String resource) {
+//	    String resourceType = null;
+//	    JsonFactory factory = new JsonFactory();
+//
+//	    try (JsonParser parser = factory.createParser(resource)) {
+//	        while (parser.nextToken() != null) {
+//	            if (parser.getCurrentToken() == JsonToken.FIELD_NAME && AccumuloFinals.RESOURCE_TYPE.equals(parser.getCurrentName())) {
+//	            	log.debug("getCurrentName=" + parser.getCurrentName());
+//	            	parser.nextToken(); // Move to value
+//	                resourceType = parser.getValueAsString();
+//	                log.debug("resourceType=" + resourceType);
+//	                break;
+//	            }
+//	        }
+//	    } catch (IOException e) {
+//	        log.error("Failed to parse JSON resource", e);
+//	        return false; // Return false if parsing fails
+//	    }
+//
+//	    log.info("Resource Type: " + resourceType);
+//	    return AccumuloFinals.BUNDLE.equals(resourceType);
+//	}
 
 	public static String toFhirPath(EAttribute eAttribute, EObject eObject) {
 //		EClass eClass = eObject.eClass();
