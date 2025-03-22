@@ -16,11 +16,11 @@ import org.apache.accumulo.core.client.TableExistsException;
 import org.apache.accumulo.core.client.TableNotFoundException;
 import org.apache.accumulo.core.client.admin.TableOperations;
 import org.eclipse.emf.ecore.EObject;
-import org.hl7.fhir.emf.FHIRSDS;
-import org.hl7.fhir.emf.Finals.SDS_FORMAT;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
+
+import edu.mit.ll.d4m.db.cloud.accumulo.AccumuloInsert;
 
 @Component
 public class AccumuloAccess {
@@ -28,13 +28,14 @@ public class AccumuloAccess {
 	private static final Logger log = LoggerFactory.getLogger(AccumuloAccess.class);
 
 	protected AccumuloClient client;
+	Properties clientProperties;
 
 	final String pairDecor = "T";
 	final String degreeDecor = "Deg";
 
 	public AccumuloAccess() {
 		super();
-		Properties clientProperties = new Properties();
+		this.clientProperties = new Properties();
 		try {
 			clientProperties
 					.load(AccumuloAccess.class.getClassLoader().getResourceAsStream("accumulo-client.properties"));
@@ -72,15 +73,17 @@ public class AccumuloAccess {
 		return tableName;
 	}
 
-	public void insert(String resource, SDS_FORMAT format, String tableName) {
+	public void insert(RCVs rcvs, String tableName) {
 
 		if (!client.tableOperations().exists(tableName)) {
 			createTable(tableName);
 		}
-
-		byte[] bytes = resource.getBytes(StandardCharsets.UTF_8);
-		InputStream reader = new ByteArrayInputStream(bytes);
-		EObject eObject = FHIRSDS.load(reader, format);
+		try {
+			AccumuloInsert accIns = new AccumuloInsert(clientProperties.getProperty("instance.name"), clientProperties.getProperty("instance.zookeepers"), tableName, clientProperties.getProperty("auth.principal"), clientProperties.getProperty(""));
+			accIns.doProcessing(rcvs.getRows(), rcvs.getCols(), rcvs.getVals(),rcvs.getF(), "PUBLIC");
+		} catch (Exception e) {
+			log.error("", e);
+		}
 	}
 
 	public void insertPair(String resource, SDS_FORMAT format, String tableName) {
@@ -91,7 +94,7 @@ public class AccumuloAccess {
 
 		byte[] bytes = resource.getBytes(StandardCharsets.UTF_8);
 		InputStream reader = new ByteArrayInputStream(bytes);
-		EObject eObject = FHIRSDS.load(reader, format);
+		EObject eObject = FHIRSerDeser.load(reader, format);
 
 		try {
 			final BatchWriter bw = client.createBatchWriter(tableName);

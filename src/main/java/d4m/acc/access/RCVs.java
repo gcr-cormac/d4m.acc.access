@@ -6,6 +6,7 @@ public class RCVs {
 	final String[] cc;
 	final String[] vv;
 	final String f;
+	final String delimiter = ",";
 
 	public RCVs(String[] rr, String[] cc, String[] vv, String f) {
 		super();
@@ -13,6 +14,18 @@ public class RCVs {
 		this.cc = cc;
 		this.vv = vv;
 		this.f = f;
+	}
+
+	public String getRows() {
+		return String.format("%s%s", String.join(delimiter, rr), delimiter);
+	}
+
+	public String getCols() {
+		return String.format("%s%s", String.join(delimiter, cc), delimiter);
+	}
+
+	public String getVals() {
+		return String.format("%s%s", String.join(delimiter, vv), delimiter);
 	}
 
 	public String[] getRr() {

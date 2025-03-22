@@ -1,4 +1,4 @@
 rootProject.name = 'd4m.acc.access'
 
-include ':FHIRSDS'
-project(':FHIRSDS').projectDir = new File(settingsDir, '../FHIRSDS')
+include ':FHIRSerDeser'
+project(':FHIRSerDeser').projectDir = new File(settingsDir, '../FHIRSerDeser')
